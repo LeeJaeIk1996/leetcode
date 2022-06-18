@@ -6,9 +6,10 @@ class Solution(object):
         :rtype: List[int]
         """
         
+        nums_map = {}
+        
         for i, n in enumerate(nums):
-            complement = target - n
-
-            if complement in nums[i + 1:]:
-                return [i, nums[i+1:].index(complement) + (i + 1)]            
+            if target - n in nums_map:
+                return [nums_map[target - n], i]
+            nums_map[n] = i
         
