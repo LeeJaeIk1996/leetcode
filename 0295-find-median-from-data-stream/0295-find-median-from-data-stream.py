@@ -5,7 +5,6 @@ class MedianFinder:
         
     def addNum(self, num: int) -> None:
         self.sol.append(num)
-        # 숫자를 추가하였으므로 median을 구하기 위해 정렬해준다.
         
     def findMedian(self) -> float:
         self.sol.sort()
