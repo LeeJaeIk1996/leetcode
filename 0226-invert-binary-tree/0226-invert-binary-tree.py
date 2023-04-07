@@ -7,25 +7,18 @@
 class Solution:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
         
-        # 예외 처리
-        if not root:
-            return root
-        
-        
         def dfs(node: Optional[TreeNode]):
-            
-            # 종료 조건
+            # 종료 조건. 즉, 더이상 node가 없을 경우 return한다.
             if not node:
                 return
-            
-            
-            # 양 쪽의 값을 교환
+
+            # 왼쪽과 오른쪽 각각을 탐색
+            dfs(node.left)
+            dfs(node.right)
+
+            # 현재의 노드에서 노드의 왼쪽과 오른쪽을 바꿔준다.
             node.left, node.right = node.right, node.left
-            
-            dfs(node.left)  # 왼쪽의 자식 노드로 재귀
-            dfs(node.right) # 오른쪽의 자식 노드로 재귀
-            
+
         dfs(root)
-        
-        
+
         return root
