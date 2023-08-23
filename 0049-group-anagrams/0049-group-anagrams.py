@@ -1,10 +1,10 @@
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         
-        anagrams = defaultdict(list)
+        list_dict = defaultdict(list)
 
-        for word in strs:
-            # 정렬하여 딕셔너리에 추가
-            anagrams[''.join(sorted(word))].append(word)
+        # strs를 순회하여 정렬
+        for str in strs:
+            list_dict[''.join(sorted(str))].append(str)
 
-        return list(anagrams.values())
+        return list(list_dict.values())
